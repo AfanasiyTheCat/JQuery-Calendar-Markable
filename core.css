@@ -1,0 +1,83 @@
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar {
+    --calendar_cell_size: 5px;
+    --calendar_border: 1px gray solid;
+    display: flex;
+    border: 2px gray solid;
+    font-size: calc(var(--calendar_cell_size) * 6);
+}
+
+.calendar td {
+    text-align: center;
+    vertical-align: middle;
+    transition: all 0.2s;
+    border-radius: 5px;
+}
+
+.calendar table {
+    border-collapse: separate;
+}
+
+.calendar ::-webkit-scrollbar {
+    width: 0;
+    padding: 0;
+}
+
+.calendar_days {
+    margin: 0 10px;
+    border-spacing: 0.5em 0.5em;
+}
+.calendar_days th, .calendar_days td {
+    padding: var(--calendar_cell_size) calc(var(--calendar_cell_size) * 1.5);
+}
+
+.calendar_months, .calendar_hours {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7em;
+    border-spacing: 0.25em 0.25em;
+}
+.calendar_months {border-right: var(--calendar_border)}
+.calendar_hours {border-left: var(--calendar_border);}
+
+.calendar_months td, .calendar_hours td {
+    padding: calc(var(--calendar_cell_size)) calc(var(--calendar_cell_size) * 1.5);
+}
+
+.calendar_days td {
+    margin: 0 calc(var(--calendar_cell_size) / 2);
+}
+
+.calendar td {
+    text-align: center;
+}
+
+.calendar td:not([disabled]):not([selected]):hover {
+    box-shadow: inset 0 0 10px lightgray;
+    cursor: pointer;
+}
+.calendar td:not([disabled])[selected]:hover {
+    box-shadow: inset 0 0 20px lightgray;
+}
+
+.calendar td[disabled] {
+    cursor: default;
+}
+
+.calendar td[selected] {
+    box-shadow: inset 0 0 15px lightgray;
+    cursor: pointer;
+}
+
+.marked_date {
+    background-color: red;
+}
