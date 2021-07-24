@@ -231,6 +231,7 @@ class Calendar {
         }
         for (let i = 0; i < (7-tempWeekDay); i++) day_table_days += "<td disabled></td>";
         day_table_days += "</tr>";
+        row++;
         if (row === 4) {
             day_table_days += "<tr>";
             for (let i = 0; i < 7; i++) day_table_days += "<td style='opacity:0; cursor: default;' disabled>0</td>";
@@ -479,9 +480,3 @@ class CalendarMarkable extends Calendar {
         return date;
     }
 }
-
-let calendar = new CalendarMarkable($(".calendar"));
-
-let date = new Date();
-let date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 5);
-calendar.markDatePeriod(date, date2, "marked_date")
